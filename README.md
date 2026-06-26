@@ -24,7 +24,7 @@ The goal is to move from simple weed detection toward real-time selective sprayi
 
 ## Demo
 
-![Web demo](assets/web-demo.jpg)
+![Web demo](assets/web-demo.JPG)
 
 **Live demo:** https://marinashub.ro/weeds
 
