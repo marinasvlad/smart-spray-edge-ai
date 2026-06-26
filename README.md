@@ -102,7 +102,7 @@ The model achieved strong same-domain performance and was also evaluated on an e
 
 ## Deployment 1: Web Inference
 
-![Web demo](assets/web-demo.jpg)
+![Web demo](assets/web-demo.JPG)
 
 The web application uses a distributed architecture:
 
@@ -125,7 +125,7 @@ The PyTorch model was exported to ONNX to make deployment lighter and more suita
 
 ## Deployment 2: Drone Field Mapping
 
-![Drone mapping](assets/drone-mapping.jpg)
+![Drone mapping](assets/drone-mapping.JPG)
 
 The model was also applied to drone footage captured over a maize field.
 
@@ -142,7 +142,7 @@ The processed video can be used to visualize:
 
 ## Deployment 3: Edge-AI Smart Spray Prototype
 
-![Jetson cart](assets/jetson-cart.jpg)
+![Jetson cart](assets/jetson-cart.JPG)
 
 The model was deployed on an **NVIDIA Jetson Orin Nano Super** for real-time edge inference.
 
