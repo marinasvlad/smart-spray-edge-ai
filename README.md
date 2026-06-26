@@ -202,15 +202,16 @@ smart-spray-edge-ai/
   .gitignore
 
   assets/
-    web-demo.jpg
-    drone-mapping.jpg
-    jetson-cart.jpg
+    web-demo.JPG
+    drone-mapping.JPG
+    jetson-cart.JPG
     award.jpg
+    demo-original.jpg
+    demo-mask.png
+    demo-overlay.jpg
 
   src/
     create_overlay.py
-    export_to_onnx.py
-    video_inference.py
     smart_spray_decision.py
 
   docs/
@@ -218,19 +219,90 @@ smart-spray-edge-ai/
     deployment-notes.md
 ```
 
-### Scripts
+---
 
-* `src/create_overlay.py`
-  Creates visualization overlays from segmentation masks.
+## Scripts
 
-* `src/export_to_onnx.py`
-  Demonstrates the PyTorch to ONNX export step used for deployment.
+### `src/create_overlay.py`
 
-* `src/video_inference.py`
-  Shows the frame-by-frame video inference pipeline used for drone footage.
+Creates visualization overlays from segmentation masks.
 
-* `src/smart_spray_decision.py`
-  Contains the simplified decision logic for triggering spraying based on weed pixel ratio.
+The script takes:
+
+* an original image;
+* a color-coded segmentation mask;
+* an output path.
+
+It then creates a visual overlay where:
+
+* maize is highlighted in blue;
+* weeds are highlighted in red;
+* background remains unchanged.
+
+Run:
+
+```bash
+python src/create_overlay.py --image assets/demo-original.jpg --mask assets/demo-mask.png --output assets/demo-overlay.jpg
+```
+
+Expected input files:
+
+```text
+assets/demo-original.jpg
+assets/demo-mask.png
+```
+
+Generated output:
+
+```text
+assets/demo-overlay.jpg
+```
+
+### Overlay Example
+
+Original image:
+
+![Demo original](assets/demo-original.jpg)
+
+Color-coded segmentation mask:
+
+![Demo mask](assets/demo-mask.png)
+
+Generated overlay:
+
+![Demo overlay](assets/demo-overlay.jpg)
+
+---
+
+### `src/smart_spray_decision.py`
+
+Contains the simplified decision logic for triggering spraying based on weed pixel ratio.
+
+The script demonstrates the core idea behind the Jetson prototype:
+
+```text
+semantic segmentation mask → weed pixel ratio → threshold decision → spray / no spray
+```
+
+Run:
+
+```bash
+python src/smart_spray_decision.py
+```
+
+Example output:
+
+```text
+Prediction summary:
+- background_ratio: 0.8194
+- maize_ratio: 0.1367
+- weed_ratio: 0.0439
+
+Spray decision: True
+Weed ratio: 0.0439
+```
+
+> Note: `export_to_onnx.py` and `video_inference.py` will be added later as deployment examples.
 
 ---
 
