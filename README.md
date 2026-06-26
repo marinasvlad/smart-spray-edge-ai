@@ -202,15 +202,13 @@ smart-spray-edge-ai/
   .gitignore
 
   assets/
-    web-demo.jpg
-    drone-mapping.jpg
-    jetson-cart.jpg
+    web-demo.JPG
+    drone-mapping.JPG
+    jetson-cart.JPG
     award.jpg
 
   src/
     create_overlay.py
-    export_to_onnx.py
-    video_inference.py
     smart_spray_decision.py
 
   docs/
@@ -223,14 +221,27 @@ smart-spray-edge-ai/
 * `src/create_overlay.py`
   Creates visualization overlays from segmentation masks.
 
-* `src/export_to_onnx.py`
-  Demonstrates the PyTorch to ONNX export step used for deployment.
-
-* `src/video_inference.py`
-  Shows the frame-by-frame video inference pipeline used for drone footage.
-
 * `src/smart_spray_decision.py`
   Contains the simplified decision logic for triggering spraying based on weed pixel ratio.
+
+### Example Usage
+
+Run the simplified smart spraying decision demo:
+
+```bash
+python src/smart_spray_decision.py
+```
+
+Create an overlay from an original image and a color-coded mask:
+
+```bash
+python src/create_overlay.py \
+  --image assets/demo-original.jpg \
+  --mask assets/demo-mask.png \
+  --output assets/demo-overlay.jpg
+```
+
+> Note: `export_to_onnx.py` and `video_inference.py` will be added later as deployment examples.
 
 ---
 
