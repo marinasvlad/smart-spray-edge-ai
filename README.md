@@ -223,6 +223,7 @@ smart-spray-edge-ai/
 
 ## Scripts
 
+<<<<<<< HEAD
 ### `src/create_overlay.py`
 
 Creates visualization overlays from segmentation masks.
@@ -300,6 +301,29 @@ Prediction summary:
 
 Spray decision: True
 Weed ratio: 0.0439
+```
+
+> Note: `export_to_onnx.py` and `video_inference.py` will be added later as deployment examples.
+=======
+* `src/smart_spray_decision.py`
+  Contains the simplified decision logic for triggering spraying based on weed pixel ratio.
+>>>>>>> 821409160fd75b097fa878081730d0d7c8faafd9
+
+### Example Usage
+
+Run the simplified smart spraying decision demo:
+
+```bash
+python src/smart_spray_decision.py
+```
+
+Create an overlay from an original image and a color-coded mask:
+
+```bash
+python src/create_overlay.py \
+  --image assets/demo-original.jpg \
+  --mask assets/demo-mask.png \
+  --output assets/demo-overlay.jpg
 ```
 
 > Note: `export_to_onnx.py` and `video_inference.py` will be added later as deployment examples.
